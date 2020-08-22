@@ -38,9 +38,9 @@ namespace MvcBlog.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Makale> Makales { get; set; }
 
-        public virtual Yetki Yetki { get; set; }
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Yorum> Yorums { get; set; }
+
+        public virtual Yetki Yetki { get; set; }
     }
 }

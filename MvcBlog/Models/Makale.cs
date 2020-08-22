@@ -5,7 +5,6 @@ namespace MvcBlog.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
-    using System.Web.Mvc;
 
     [Table("Makale")]
     public partial class Makale
@@ -21,7 +20,7 @@ namespace MvcBlog.Models
 
         [StringLength(500)]
         public string Baslik { get; set; }
-        [UIHint("tinymce_full_compressed"), AllowHtml]
+
         public string Icerik { get; set; }
 
         [StringLength(500)]
