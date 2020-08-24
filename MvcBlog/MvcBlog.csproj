@@ -305,6 +305,11 @@
     <Content Include="Scripts\jquery-3.2.1.min.js" />
     <Content Include="Scripts\jquery-3.2.1.slim.js" />
     <Content Include="Scripts\jquery-3.2.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\tinymce.3.4.5\langs\en.js" />
     <Content Include="Scripts\tinymce.3.4.5\license.txt" />
@@ -743,7 +748,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\AdminMakale\Create.cshtml" />
     <Content Include="Views\AdminMakale\Edit.cshtml" />
     <Content Include="Views\AdminMakale\Delete.cshtml" />
     <Content Include="Views\AdminKategori\Create.cshtml" />
@@ -769,7 +773,6 @@
     <Content Include="Views\AdminYorum\Details.cshtml" />
     <Content Include="Views\AdminYorum\Edit.cshtml" />
     <Content Include="Views\AdminYorum\Index.cshtml" />
-    <Content Include="Views\AdminUye\Create.cshtml" />
     <Content Include="Views\AdminUye\Delete.cshtml" />
     <Content Include="Views\AdminUye\Details.cshtml" />
     <Content Include="Views\AdminUye\Edit.cshtml" />
@@ -789,6 +792,8 @@
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce-mobile.woff" />
     <Content Include="Scripts\tinymce\langs\readme.md" />
     <Content Include="Views\AdminMakale\Details.cshtml" />
+    <Content Include="Views\AdminUye\Create.cshtml" />
+    <Content Include="Views\AdminMakale\Create.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -30,9 +30,6 @@ namespace MvcBlog.Models
         [StringLength(50)]
         public string AdSoyad { get; set; }
 
-        [StringLength(250)]
-        public string Foto { get; set; }
-
         public int? YetkiId { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

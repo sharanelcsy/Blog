@@ -15,7 +15,7 @@
                 <a href="/Home/MakaleDetay/@item.MakaleId">@item.Baslik</a>
             </h2>
             <p class="lead">
-                <img class="img-circle img-responsive" src="@item.Uye.Foto" width="50" alt="@item.Uye.AdSoyad" />
+              
                 @if (@item.UyeId == Convert.ToInt32(Session["uyeid"]))
                 {
                     <a href="/Uye/Index/@item.Uye.UyeId">@item.Uye.KullaniciAdi</a>

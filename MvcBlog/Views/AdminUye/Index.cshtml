@@ -27,9 +27,7 @@
         <th>
             Ad Soyad
         </th>
-        <th>
-            Fotoğraf
-        </th>
+    
         <th></th>
     </tr>
 
@@ -50,9 +48,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.AdSoyad)
         </td>
-        <td>
-            <img src="@item.Foto" class="img-circle img-responsive" alt="@item.AdSoyad" />
-        </td>
+     
         <td>
             @Html.ActionLink("Düzenle", "Edit", new { id=item.UyeId }) |
             @Html.ActionLink("Detay", "Details", new { id=item.UyeId }) |

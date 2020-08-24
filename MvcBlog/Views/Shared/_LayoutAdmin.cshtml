@@ -3,10 +3,8 @@
     {
         Response.Redirect("~/Home/Index");
     }
-    if (Convert.ToInt32(Session["yetkiid"])!=1)
-    {
-        Response.Redirect("~/Home/Index");
-    }
+
+
 }
 
 <!DOCTYPE html>
@@ -63,7 +61,7 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> @Session["kullaniciadi"].ToString() <b class="caret"></b></a>
+                
                     <ul class="dropdown-menu">                       
                             <a href="/Uye/Logout/"><i class="fa fa-fw fa-power-off"></i> Çıkış </a>
                         </li>

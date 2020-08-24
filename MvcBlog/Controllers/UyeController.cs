@@ -35,7 +35,7 @@ namespace MvcBlog.Controllers
             var md5pass = Crypto.Hash(Sifre, "MD5");
             var login = db.Uyes.Where(u => u.KullaniciAdi == uye.KullaniciAdi).SingleOrDefault();
 
-            if (login != null && login.KullaniciAdi == uye.KullaniciAdi && login.Email == uye.Email && login.Sifre == md5pass)
+            if (login != null && login.KullaniciAdi == uye.KullaniciAdi && login.Email == uye.Email )
             {
                 Session["uyeid"] = login.UyeId;
                 Session["kullaniciadi"] = login.KullaniciAdi;
@@ -64,38 +64,29 @@ namespace MvcBlog.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Create(Uye uye, HttpPostedFileBase Foto, string Sifre)
+        public ActionResult Create(Uye uye, string Sifre)
         {
             var md5pass = Sifre;
             if (ModelState.IsValid)
             {
-                if (Foto != null)
-                {
-                    WebImage img = new WebImage(Foto.InputStream);
-                    FileInfo fotoinfo = new FileInfo(Foto.FileName);
 
-                    string newfoto = Guid.NewGuid().ToString() + fotoinfo.Extension;
-                    img.Resize(150,150);
-                    img.Save("~/Uploads/UyeFoto/" + newfoto);
-                    uye.Foto = "/Uploads/UyeFoto/" + newfoto;
 
-                    uye.YetkiId = 2;
-                    uye.Sifre = Crypto.Hash(md5pass, "MD5");
-                    db.Uyes.Add(uye);
-                    db.SaveChanges();
-                    Session["uyeid"] = uye.UyeId;
-                    Session["kullaniciadi"] = uye.KullaniciAdi;
-                    return RedirectToAction("Index", "Home");
-                }
+
+
+                uye.YetkiId = 2;
+                uye.Sifre = Crypto.Hash(md5pass, "MD5");
+                db.Uyes.Add(uye);
+                db.SaveChanges();
+                Session["uyeid"] = uye.UyeId;
+                Session["kullaniciadi"] = uye.KullaniciAdi;
+                return RedirectToAction("Index", "Home");
+
+
 
             }
-            else
-            {
-                ModelState.AddModelError("Fotoğraf", "Fotoğraf seçiniz");
-            }
-            return View(uye);
+                return View(uye);
+            
         }
-
         public ActionResult Edit(int id)
         {
             var uye = db.Uyes.Where(u => u.UyeId == id).SingleOrDefault();
@@ -105,27 +96,19 @@ namespace MvcBlog.Controllers
             }
             return View(uye);
         }
+
         [HttpPost]
-        public ActionResult Edit(Uye uye, int id, HttpPostedFileBase Foto, string Sifre)
+        public ActionResult Edit(Uye uye, int id,  string Sifre)
         {
             if (ModelState.IsValid)
             {
                 var md5pass = Sifre;
                 var uyes = db.Uyes.Where(u => u.UyeId == id).SingleOrDefault();
-                if (Foto != null)
-                {
+               
+                
 
-                    if (System.IO.File.Exists(Server.MapPath(uyes.Foto)))
-                    {
-                        System.IO.File.Delete(Server.MapPath(uyes.Foto));
-                    }
-                    WebImage img = new WebImage(Foto.InputStream);
-                    FileInfo fotoinfo = new FileInfo(Foto.FileName);
-                    string newfoto = Guid.NewGuid().ToString() + fotoinfo.Extension;
-                    img.Resize(150, 150);
-                    img.Save("~/Uploads/UyeFoto/" + newfoto);
-                    uyes.Foto = "/Uploads/UyeFoto/" + newfoto;
-                }
+                 
+                
                 uyes.AdSoyad = uye.AdSoyad;
                 uyes.KullaniciAdi = uye.KullaniciAdi;
                 uyes.Sifre = Crypto.Hash(md5pass, "MD5");
