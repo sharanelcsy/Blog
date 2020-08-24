@@ -12,7 +12,7 @@ namespace MvcBlog.Controllers
 {
     public class AdminUyeController : Controller
     {
-        //Türkçeleştirme işlemlerini yap
+        //Türkçeleştirme
         private mvcblogDB db = new mvcblogDB();
 
         // GET: AdminUye
@@ -22,7 +22,7 @@ namespace MvcBlog.Controllers
             return View(uyes.OrderByDescending(u=>u.UyeId).ToList());
         }
 
-        // GET: AdminUye/Details/5
+        // GET: AdminUye/Details/
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -45,8 +45,7 @@ namespace MvcBlog.Controllers
         }
 
         // POST: AdminUye/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+      
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "UyeId,KullaniciAdi,Email,Sifre,AdSoyad,YetkiId")] Uye uye)
@@ -80,8 +79,7 @@ namespace MvcBlog.Controllers
         }
 
         // POST: AdminUye/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+    
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "UyeId,KullaniciAdi,Email,Sifre,AdSoyad,YetkiId")] Uye uye)

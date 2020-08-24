@@ -42,6 +42,10 @@ namespace MvcBlog.Controllers
         public ActionResult Create()
         {
             ViewBag.KategoriId = new SelectList(db.Kategoris, "KategoriId", "KategoriAdi");
+            var list = db.Uyes.ToList();
+
+            ViewBag.UyeId = new SelectList(list, "UyeId", "UyeId");
+
             return View();
         }
 
